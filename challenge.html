@@ -6,10 +6,8 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>The Challenge</title>
 
@@ -26,13 +24,10 @@
 
 html,
 body {
-
     margin: 0;
     padding: 0;
-
     width: 100%;
     min-height: 100%;
-
 }
 
 
@@ -65,7 +60,6 @@ body {
     justify-content: center;
 
     overflow-x: hidden;
-
 }
 
 
@@ -87,14 +81,11 @@ body {
     text-align: center;
 
     padding: 55px 20px;
-
 }
 
 
 .content {
-
     width: 100%;
-
 }
 
 
@@ -111,7 +102,6 @@ body {
     color: #77746c;
 
     margin-bottom: 32px;
-
 }
 
 
@@ -131,7 +121,6 @@ h1 {
     letter-spacing: 6px;
 
     color: #e9e5dc;
-
 }
 
 
@@ -150,7 +139,6 @@ h1 {
     margin: 27px auto;
 
     opacity: .7;
-
 }
 
 
@@ -171,18 +159,16 @@ h1 {
     line-height: 2;
 
     font-style: italic;
-
 }
 
 
 /* =========================
-   CHALLENGE AREA
+   CHALLENGE
 ========================= */
 
 .challenge {
 
     margin-top: 45px;
-
 }
 
 
@@ -199,7 +185,6 @@ h1 {
     color: #77746c;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -209,7 +194,7 @@ h1 {
 
 input {
 
-    width: min(100%, 380px);
+    width: min(100%, 390px);
 
     padding: 15px 18px;
 
@@ -221,24 +206,22 @@ input {
 
     font-family: Georgia, serif;
 
-    font-size: 16px;
+    font-size: 15px;
 
     text-align: center;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     outline: none;
 
     transition:
         border-color .3s ease;
-
 }
 
 
 input:focus {
 
     border-color: #aaa69d;
-
 }
 
 
@@ -247,7 +230,6 @@ input::placeholder {
     color: #57544e;
 
     letter-spacing: 2px;
-
 }
 
 
@@ -279,7 +261,6 @@ input::placeholder {
         background .35s ease,
         color .35s ease,
         transform .25s ease;
-
 }
 
 
@@ -290,7 +271,6 @@ input::placeholder {
     color: #101010;
 
     transform: translateY(-2px);
-
 }
 
 
@@ -300,26 +280,23 @@ input::placeholder {
 
 .message {
 
-    min-height: 25px;
+    min-height: 24px;
 
     margin-top: 18px;
 
     font-size: 13px;
 
     color: #77746c;
-
-    transition: opacity .3s ease;
-
 }
 
 
 /* =========================
-   HINT AREA
+   HINT BUTTON
 ========================= */
 
 .hint-trigger {
 
-    margin-top: 25px;
+    margin-top: 27px;
 
     background: none;
 
@@ -337,14 +314,12 @@ input::placeholder {
 
     transition:
         color .3s ease;
-
 }
 
 
 .hint-trigger:hover {
 
     color: #aaa69d;
-
 }
 
 
@@ -352,7 +327,7 @@ input::placeholder {
    HINT BOX
 ========================= */
 
-.hints {
+.hint-box {
 
     display: none;
 
@@ -368,30 +343,18 @@ input::placeholder {
 
     animation:
         fadeIn .6s ease forwards;
-
 }
 
 
-.hints.show {
+.hint-box.show {
 
     display: block;
-
 }
 
 
-.hint {
-
-    margin-bottom: 20px;
-
-}
-
-
-.hint:last-child {
-
-    margin-bottom: 0;
-
-}
-
+/* =========================
+   HINT NUMBER
+========================= */
 
 .hint-number {
 
@@ -401,10 +364,13 @@ input::placeholder {
 
     color: #66635d;
 
-    margin-bottom: 8px;
-
+    margin-bottom: 10px;
 }
 
+
+/* =========================
+   HINT TEXT
+========================= */
 
 .hint-text {
 
@@ -415,7 +381,36 @@ input::placeholder {
     line-height: 1.9;
 
     font-style: italic;
+}
 
+
+/* =========================
+   NEXT HINT
+========================= */
+
+.more-hint {
+
+    margin-top: 18px;
+
+    background: none;
+
+    border: none;
+
+    color: #77746c;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+}
+
+
+.more-hint:hover {
+
+    color: #aaa69d;
 }
 
 
@@ -439,14 +434,12 @@ input::placeholder {
 
     transition:
         color .3s ease;
-
 }
 
 
 .return:hover {
 
     color: #aaa69d;
-
 }
 
 
@@ -471,7 +464,6 @@ input::placeholder {
     letter-spacing: 3px;
 
     color: #4f4d48;
-
 }
 
 
@@ -487,7 +479,6 @@ input::placeholder {
 
         transform:
             translateY(10px);
-
     }
 
     to {
@@ -496,7 +487,6 @@ input::placeholder {
 
         transform:
             translateY(0);
-
     }
 
 }
@@ -511,19 +501,16 @@ input::placeholder {
     h1 {
 
         letter-spacing: 4px;
-
     }
 
     .symbols {
 
         letter-spacing: 8px;
-
     }
 
     .intro {
 
         font-size: 14px;
-
     }
 
 }
@@ -531,7 +518,6 @@ input::placeholder {
 </style>
 
 </head>
-
 
 
 <body>
@@ -543,21 +529,15 @@ input::placeholder {
 <div class="content">
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <div class="symbols">
-
 ϟ △ ⊙ ∴ □
-
 </div>
 
 
 <h1>
-
 THE CHALLENGE
-
 </h1>
 
 
@@ -576,17 +556,13 @@ You only have to notice it.
 
 
 
-<!-- =========================
-     CHALLENGE
-========================= -->
+<!-- CHALLENGE -->
 
 <div class="challenge">
 
 
 <div class="label">
-
 ENTER THE KEY
-
 </div>
 
 
@@ -622,13 +598,12 @@ DECODE
 
 
 
-<!-- =========================
-     HINT BUTTON
-========================= -->
+<!-- HINT BUTTON -->
 
 <button
+    id="hintTrigger"
     class="hint-trigger"
-    onclick="toggleHints()"
+    onclick="showNextHint()"
 >
 
 Need a little help?
@@ -637,87 +612,44 @@ Need a little help?
 
 
 
-<!-- =========================
-     HINTS
-========================= -->
+<!-- HINT -->
 
 <div
-    id="hints"
-    class="hints"
+    id="hintBox"
+    class="hint-box"
 >
 
 
-<div class="hint">
-
-<div class="hint-number">
-
-HINT 01 · LOOK AGAIN
-
-</div>
-
-<div class="hint-text">
-
-Go back to the scenario.
-
-Read it once more.
-
-One detail may be more important
-than it first appears.
-
-</div>
-
+<div
+    id="hintNumber"
+    class="hint-number"
+>
 </div>
 
 
-
-<div class="hint">
-
-<div class="hint-number">
-
-HINT 02 · LOOK CLOSER
-
-</div>
-
-<div class="hint-text">
-
-Don't only read the words.
-
-Look at what has been deliberately
-placed there.
-
-</div>
-
+<div
+    id="hintText"
+    class="hint-text"
+>
 </div>
 
 
+<button
+    id="moreHint"
+    class="more-hint"
+    onclick="showNextHint()"
+>
 
-<div class="hint">
+I NEED ANOTHER HINT
 
-<div class="hint-number">
-
-HINT 03 · THE LAST STEP
-
-</div>
-
-<div class="hint-text">
-
-The key is connected to something
-you have already seen.
-
-The answer is closer than you think.
-
-</div>
-
-</div>
+</button>
 
 
 </div>
 
 
 
-<!-- =========================
-     RETURN TO SCENARIO
-========================= -->
+<!-- RETURN TO SCENARIO -->
 
 <a
     href="Reflection 8b.pdf"
@@ -746,29 +678,148 @@ THINK · QUESTION · REFLECT
 
 <script>
 
-
-/* =========================
-   CHANGE THIS KEY
-   IF NEEDED
-========================= */
+/* =====================================================
+   FINAL KEY
+===================================================== */
 
 const correctKey =
     "UNDERSTANDING IS NOT THE FINAL STOP";
 
 
+/* =====================================================
+   HINTS
 
-/* =========================
+   HINT 1 = VERY SUBTLE
+   HINT 2 = MORE DIRECT
+   HINT 3 = FINAL GUIDANCE
+===================================================== */
+
+const hints = [
+
+    {
+        number: "HINT 01 · LOOK AGAIN",
+
+        text:
+        "Go back to the scenario. " +
+        "Read it once more, but this time " +
+        "pay attention to the details you " +
+        "may have passed over."
+    },
+
+    {
+        number: "HINT 02 · LOOK CLOSER",
+
+        text:
+        "The key is not something new. " +
+        "It comes from something you have " +
+        "already seen in the scenario. " +
+        "Look for what seems deliberately placed."
+    },
+
+    {
+        number: "HINT 03 · THE LAST STEP",
+
+        text:
+        "You are looking for a phrase, not a symbol. " +
+        "Think about the meaning behind the journey " +
+        "of the scenario. The answer is closer than it seems."
+    }
+
+];
+
+
+/* =====================================================
+   HINT STATE
+===================================================== */
+
+let currentHint = 0;
+
+
+/* =====================================================
+   SHOW NEXT HINT
+===================================================== */
+
+function showNextHint() {
+
+    const hintBox =
+        document.getElementById("hintBox");
+
+    const hintNumber =
+        document.getElementById("hintNumber");
+
+    const hintText =
+        document.getElementById("hintText");
+
+    const moreHint =
+        document.getElementById("moreHint");
+
+    const hintTrigger =
+        document.getElementById("hintTrigger");
+
+
+    if (currentHint < hints.length) {
+
+        hintNumber.innerText =
+            hints[currentHint].number;
+
+        hintText.innerText =
+            hints[currentHint].text;
+
+        hintBox.classList.add("show");
+
+        currentHint++;
+
+    }
+
+
+    /* After the third hint */
+
+    if (currentHint >= hints.length) {
+
+        moreHint.style.display =
+            "none";
+
+        hintTrigger.innerText =
+            "ALL HINTS REVEALED";
+
+        hintTrigger.disabled =
+            true;
+
+        hintTrigger.style.cursor =
+            "default";
+
+    }
+
+}
+
+
+/* =====================================================
+   NORMALIZE ANSWER
+
+   Removes extra spaces and ignores
+   upper/lower case.
+===================================================== */
+
+function normalizeText(text) {
+
+    return text
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+
+}
+
+
+/* =====================================================
    CHECK ANSWER
-========================= */
+===================================================== */
 
 function checkCode() {
 
     const input =
         document
         .getElementById("codeInput")
-        .value
-        .trim()
-        .toUpperCase();
+        .value;
 
 
     const message =
@@ -776,9 +827,20 @@ function checkCode() {
         .getElementById("message");
 
 
-    if (input === correctKey) {
+    const normalizedInput =
+        normalizeText(input);
 
-        message.innerHTML =
+
+    const normalizedKey =
+        normalizeText(correctKey);
+
+
+    if (
+        normalizedInput ===
+        normalizedKey
+    ) {
+
+        message.innerText =
             "The lock opens.";
 
 
@@ -793,14 +855,12 @@ function checkCode() {
 
         }, 900);
 
-
     }
 
     else {
 
-        message.innerHTML =
+        message.innerText =
             "Not quite. Look again.";
-
 
         message.style.color =
             "#77746c";
@@ -810,42 +870,24 @@ function checkCode() {
 }
 
 
-
-/* =========================
+/* =====================================================
    ENTER KEY SUPPORT
-========================= */
+===================================================== */
 
 document
-.getElementById("codeInput")
-.addEventListener(
-    "keydown",
-    function(event) {
+    .getElementById("codeInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
 
-        if (event.key === "Enter") {
+            if (event.key === "Enter") {
 
-            checkCode();
+                checkCode();
+
+            }
 
         }
-
-    }
-);
-
-
-
-/* =========================
-   SHOW / HIDE HINTS
-========================= */
-
-function toggleHints() {
-
-    const hints =
-        document
-        .getElementById("hints");
-
-
-    hints.classList.toggle("show");
-
-}
+    );
 
 </script>
 
