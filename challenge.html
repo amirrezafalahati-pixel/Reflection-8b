@@ -1,4 +1,643 @@
-```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>The Challenge</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #202020 0%,
+            #111111 55%,
+            #070707 100%
+        );
+
+    color: #e7e3d8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+}
+
+.container {
+
+    width: min(90%, 720px);
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 20px;
+}
+
+.content {
+    width: 100%;
+}
+
+.symbols {
+
+    font-size: 18px;
+
+    letter-spacing: 13px;
+
+    color: #77746c;
+
+    margin-bottom: 32px;
+}
+
+h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(30px, 8vw, 52px);
+
+    font-weight: normal;
+
+    letter-spacing: 6px;
+
+    color: #e9e5dc;
+}
+
+.line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #77746c;
+
+    margin: 27px auto;
+
+    opacity: .7;
+}
+
+.intro {
+
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    color: #9f9b93;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    font-style: italic;
+}
+
+.challenge {
+
+    margin-top: 45px;
+}
+
+.label {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #77746c;
+
+    margin-bottom: 15px;
+}
+
+input {
+
+    width: min(100%, 390px);
+
+    padding: 15px 18px;
+
+    background: transparent;
+
+    border: 1px solid #55524c;
+
+    color: #e7e3d8;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    letter-spacing: 2px;
+
+    outline: none;
+}
+
+input:focus {
+
+    border-color: #aaa69d;
+}
+
+input::placeholder {
+
+    color: #57544e;
+
+    letter-spacing: 2px;
+}
+
+.decode {
+
+    margin-top: 16px;
+
+    padding: 13px 32px;
+
+    background: transparent;
+
+    border: 1px solid #66635d;
+
+    color: #dedad0;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .25s ease;
+}
+
+.decode:hover {
+
+    background: #dedad0;
+
+    color: #101010;
+
+    transform: translateY(-2px);
+}
+
+.message {
+
+    min-height: 24px;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    color: #77746c;
+}
+
+.hint-trigger {
+
+    margin-top: 27px;
+
+    background: none;
+
+    border: none;
+
+    color: #625f58;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.hint-trigger:hover {
+
+    color: #aaa69d;
+}
+
+.hint-box {
+
+    display: none;
+
+    max-width: 520px;
+
+    margin: 22px auto 0;
+
+    padding: 22px 20px;
+
+    border-top: 1px solid #373631;
+
+    border-bottom: 1px solid #373631;
+
+    animation:
+        fadeIn .6s ease forwards;
+}
+
+.hint-box.show {
+
+    display: block;
+}
+
+.hint-number {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #66635d;
+
+    margin-bottom: 10px;
+}
+
+.hint-text {
+
+    color: #99958d;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    font-style: italic;
+}
+
+.more-hint {
+
+    margin-top: 18px;
+
+    background: none;
+
+    border: none;
+
+    color: #77746c;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+}
+
+.more-hint:hover {
+
+    color: #aaa69d;
+}
+
+.return {
+
+    display: inline-block;
+
+    margin-top: 40px;
+
+    color: #625f58;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+}
+
+.return:hover {
+
+    color: #aaa69d;
+}
+
+.footer {
+
+    position: fixed;
+
+    bottom: 16px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #4f4d48;
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+
+    h1 {
+        letter-spacing: 4px;
+    }
+
+    .symbols {
+        letter-spacing: 8px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="content">
+
+
+<div class="symbols">
+ϟ △ ⊙ ∴ □
+</div>
+
+
+<h1>
+THE CHALLENGE
+</h1>
+
+
+<div class="line"></div>
+
+
+<div class="intro">
+
+The key is already there.
+
+<br>
+
+You only have to notice it.
+
+</div>
+
+
+<div class="challenge">
+
+
+<div class="label">
+ENTER THE KEY
+</div>
+
+
+<input
+    id="codeInput"
+    type="text"
+    placeholder="TYPE YOUR ANSWER"
+    autocomplete="off"
+>
+
+
+<br>
+
+
+<button
+    class="decode"
+    onclick="checkCode()"
+>
+
+DECODE
+
+</button>
+
+
+<div
+    id="message"
+    class="message"
+>
+</div>
+
+
+</div>
+
+
+<button
+    id="hintTrigger"
+    class="hint-trigger"
+    onclick="showNextHint()"
+>
+
+Need a little help?
+
+</button>
+
+
+<div
+    id="hintBox"
+    class="hint-box"
+>
+
+
+<div
+    id="hintNumber"
+    class="hint-number"
+>
+</div>
+
+
+<div
+    id="hintText"
+    class="hint-text"
+>
+</div>
+
+
+<button
+    id="moreHint"
+    class="more-hint"
+    onclick="showNextHint()"
+>
+
+I NEED ANOTHER HINT
+
+</button>
+
+
+</div>
+
+
+<a
+    href="Reflection-Scenario-B.pdf"
+    target="_blank"
+    class="return"
+>
+
+↶ RETURN TO THE SCENARIO
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+THINK · QUESTION · REFLECT
+
+</div>
+
+
+<script>
+
+
+const correctKey =
+    "UNDERSTANDING IS NOT THE FINAL STOP";
+
+
+const hints = [
+
+    {
+        number: "HINT 01 · LOOK AGAIN",
+
+        text:
+        "Go back to the scenario. " +
+        "Read it once more, but this time " +
+        "pay attention to the details you " +
+        "may have passed over."
+    },
+
+    {
+        number: "HINT 02 · LOOK CLOSER",
+
+        text:
+        "The key is not something new. " +
+        "It comes from something you have " +
+        "already seen in the scenario. " +
+        "Look for what seems deliberately placed."
+    },
+
+    {
+        number: "HINT 03 · THE LAST STEP",
+
+        text:
+        "You are looking for a phrase, not a symbol. " +
+        "Think about the meaning behind the journey " +
+        "of the scenario. The answer is closer than it seems."
+    }
+
+];
+
+
+let currentHint = 0;
+
+
+function showNextHint() {
+
+    const hintBox =
+        document.getElementById("hintBox");
+
+    const hintNumber =
+        document.getElementById("hintNumber");
+
+    const hintText =
+        document.getElementById("hintText");
+
+    const moreHint =
+        document.getElementById("moreHint");
+
+    const hintTrigger =
+        document.getElementById("hintTrigger");
+
+
+    if (currentHint < hints.length) {
+
+        hintNumber.innerText =
+            hints[currentHint].number;
+
+        hintText.innerText =
+            hints[currentHint].text;
+
+        hintBox.classList.add("show");
+
+        currentHint++;
+
+    }
+
+
+    if (currentHint >= hints.length) {
+
+        moreHint.style.display =
+            "none";
+
+        hintTrigger.innerText =
+            "ALL HINTS REVEALED";
+
+        hintTrigger.disabled =
+            true;
+
+        hintTrigger.style.cursor =
+            "default";
+
+    }
+
+}
+
+
+function normalizeText(text) {
+
+    return text
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+
+}
+
+
 function checkCode() {
 
     const input =
@@ -24,63 +663,83 @@ function checkCode() {
 
         message.innerHTML =
 
-            '<div style="font-size:16px; letter-spacing:2px; margin-bottom:10px;">' +
-            'THE LOCK OPENS.' +
+            '<div style="' +
+            'font-size:16px;' +
+            'letter-spacing:3px;' +
+            'margin-bottom:12px;' +
+            'color:#dedad0;' +
+            '">' +
+
+            'THE DOOR IS OPEN.' +
+
             '</div>' +
 
-            '<div style="font-size:12px; line-height:1.9; color:#8f8b83; font-style:italic;">' +
-            'You found the key.<br>' +
-            'The next step is yours.' +
+            '<div style="' +
+            'font-size:12px;' +
+            'line-height:1.9;' +
+            'color:#8f8b83;' +
+            'font-style:italic;' +
+            '">' +
+
+            'You found what was already there.<br>' +
+            'Now, take the next step.' +
+
             '</div>' +
 
-            '<a href="Main-Reflection-B.pdf" target="_blank" ' +
+            '<a href="Main-Reflection-B.pdf" ' +
+            'target="_blank" ' +
             'style="' +
             'display:inline-block;' +
-            'margin-top:25px;' +
-            'padding:14px 28px;' +
+            'margin-top:27px;' +
+            'padding:14px 30px;' +
             'border:1px solid #66635d;' +
             'color:#dedad0;' +
             'text-decoration:none;' +
             'font-family:Georgia,serif;' +
             'font-size:12px;' +
             'letter-spacing:2px;' +
+            'transition:all .35s ease;' +
             '">' +
+
             'OPEN THE REFLECTION' +
+
             '</a>';
-
-
-        message.style.color =
-            "#c5c0b5";
 
 
         document
             .getElementById("codeInput")
-            .style.display = "none";
+            .style.display =
+            "none";
 
 
         document
             .querySelector(".decode")
-            .style.display = "none";
+            .style.display =
+            "none";
 
 
         document
             .querySelector(".label")
-            .style.display = "none";
+            .style.display =
+            "none";
 
 
         document
             .getElementById("hintTrigger")
-            .style.display = "none";
+            .style.display =
+            "none";
 
 
         document
             .getElementById("hintBox")
-            .style.display = "none";
+            .style.display =
+            "none";
 
 
         document
             .querySelector(".return")
-            .style.display = "none";
+            .style.display =
+            "none";
 
     }
 
@@ -95,4 +754,26 @@ function checkCode() {
     }
 
 }
-```
+
+
+document
+.getElementById("codeInput")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkCode();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
