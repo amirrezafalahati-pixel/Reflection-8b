@@ -1,0 +1,856 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>The Challenge</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #202020 0%,
+            #111111 55%,
+            #070707 100%
+        );
+
+    color: #e7e3d8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: min(90%, 720px);
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 20px;
+
+}
+
+
+.content {
+
+    width: 100%;
+
+}
+
+
+/* =========================
+   SYMBOLS
+========================= */
+
+.symbols {
+
+    font-size: 18px;
+
+    letter-spacing: 13px;
+
+    color: #77746c;
+
+    margin-bottom: 32px;
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    margin: 0;
+
+    font-size:
+        clamp(30px, 8vw, 52px);
+
+    font-weight: normal;
+
+    letter-spacing: 6px;
+
+    color: #e9e5dc;
+
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #77746c;
+
+    margin: 27px auto;
+
+    opacity: .7;
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    color: #9f9b93;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   CHALLENGE AREA
+========================= */
+
+.challenge {
+
+    margin-top: 45px;
+
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.label {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #77746c;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input {
+
+    width: min(100%, 380px);
+
+    padding: 15px 18px;
+
+    background: transparent;
+
+    border: 1px solid #55524c;
+
+    color: #e7e3d8;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    letter-spacing: 3px;
+
+    outline: none;
+
+    transition:
+        border-color .3s ease;
+
+}
+
+
+input:focus {
+
+    border-color: #aaa69d;
+
+}
+
+
+input::placeholder {
+
+    color: #57544e;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================
+   DECODE BUTTON
+========================= */
+
+.decode {
+
+    margin-top: 16px;
+
+    padding: 13px 32px;
+
+    background: transparent;
+
+    border: 1px solid #66635d;
+
+    color: #dedad0;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .25s ease;
+
+}
+
+
+.decode:hover {
+
+    background: #dedad0;
+
+    color: #101010;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    min-height: 25px;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    color: #77746c;
+
+    transition: opacity .3s ease;
+
+}
+
+
+/* =========================
+   HINT AREA
+========================= */
+
+.hint-trigger {
+
+    margin-top: 25px;
+
+    background: none;
+
+    border: none;
+
+    color: #625f58;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color .3s ease;
+
+}
+
+
+.hint-trigger:hover {
+
+    color: #aaa69d;
+
+}
+
+
+/* =========================
+   HINT BOX
+========================= */
+
+.hints {
+
+    display: none;
+
+    max-width: 520px;
+
+    margin: 22px auto 0;
+
+    padding: 22px 20px;
+
+    border-top: 1px solid #373631;
+
+    border-bottom: 1px solid #373631;
+
+    animation:
+        fadeIn .6s ease forwards;
+
+}
+
+
+.hints.show {
+
+    display: block;
+
+}
+
+
+.hint {
+
+    margin-bottom: 20px;
+
+}
+
+
+.hint:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.hint-number {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #66635d;
+
+    margin-bottom: 8px;
+
+}
+
+
+.hint-text {
+
+    color: #99958d;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   RETURN
+========================= */
+
+.return {
+
+    display: inline-block;
+
+    margin-top: 40px;
+
+    color: #625f58;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition:
+        color .3s ease;
+
+}
+
+
+.return:hover {
+
+    color: #aaa69d;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    position: fixed;
+
+    bottom: 16px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #4f4d48;
+
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    h1 {
+
+        letter-spacing: 4px;
+
+    }
+
+    .symbols {
+
+        letter-spacing: 8px;
+
+    }
+
+    .intro {
+
+        font-size: 14px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="content">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="symbols">
+
+ϟ △ ⊙ ∴ □
+
+</div>
+
+
+<h1>
+
+THE CHALLENGE
+
+</h1>
+
+
+<div class="line"></div>
+
+
+<div class="intro">
+
+The key is already there.
+
+<br>
+
+You only have to notice it.
+
+</div>
+
+
+
+<!-- =========================
+     CHALLENGE
+========================= -->
+
+<div class="challenge">
+
+
+<div class="label">
+
+ENTER THE KEY
+
+</div>
+
+
+<input
+    id="codeInput"
+    type="text"
+    placeholder="TYPE YOUR ANSWER"
+    autocomplete="off"
+>
+
+
+<br>
+
+
+<button
+    class="decode"
+    onclick="checkCode()"
+>
+
+DECODE
+
+</button>
+
+
+<div
+    id="message"
+    class="message"
+>
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     HINT BUTTON
+========================= -->
+
+<button
+    class="hint-trigger"
+    onclick="toggleHints()"
+>
+
+Need a little help?
+
+</button>
+
+
+
+<!-- =========================
+     HINTS
+========================= -->
+
+<div
+    id="hints"
+    class="hints"
+>
+
+
+<div class="hint">
+
+<div class="hint-number">
+
+HINT 01 · LOOK AGAIN
+
+</div>
+
+<div class="hint-text">
+
+Go back to the scenario.
+
+Read it once more.
+
+One detail may be more important
+than it first appears.
+
+</div>
+
+</div>
+
+
+
+<div class="hint">
+
+<div class="hint-number">
+
+HINT 02 · LOOK CLOSER
+
+</div>
+
+<div class="hint-text">
+
+Don't only read the words.
+
+Look at what has been deliberately
+placed there.
+
+</div>
+
+</div>
+
+
+
+<div class="hint">
+
+<div class="hint-number">
+
+HINT 03 · THE LAST STEP
+
+</div>
+
+<div class="hint-text">
+
+The key is connected to something
+you have already seen.
+
+The answer is closer than you think.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     RETURN TO SCENARIO
+========================= -->
+
+<a
+    href="Reflection 8b.pdf"
+    target="_blank"
+    class="return"
+>
+
+↶ RETURN TO THE SCENARIO
+
+</a>
+
+
+</div>
+
+</div>
+
+
+
+<div class="footer">
+
+THINK · QUESTION · REFLECT
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   CHANGE THIS KEY
+   IF NEEDED
+========================= */
+
+const correctKey =
+    "UNDERSTANDING IS NOT THE FINAL STOP";
+
+
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkCode() {
+
+    const input =
+        document
+        .getElementById("codeInput")
+        .value
+        .trim()
+        .toUpperCase();
+
+
+    const message =
+        document
+        .getElementById("message");
+
+
+    if (input === correctKey) {
+
+        message.innerHTML =
+            "The lock opens.";
+
+
+        message.style.color =
+            "#c5c0b5";
+
+
+        setTimeout(function() {
+
+            window.location.href =
+                "Main Reflection 8b.pdf";
+
+        }, 900);
+
+
+    }
+
+    else {
+
+        message.innerHTML =
+            "Not quite. Look again.";
+
+
+        message.style.color =
+            "#77746c";
+
+    }
+
+}
+
+
+
+/* =========================
+   ENTER KEY SUPPORT
+========================= */
+
+document
+.getElementById("codeInput")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkCode();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   SHOW / HIDE HINTS
+========================= */
+
+function toggleHints() {
+
+    const hints =
+        document
+        .getElementById("hints");
+
+
+    hints.classList.toggle("show");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
