@@ -1,369 +1,789 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Next Step</title>
+<meta charset="UTF-8">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-        }
+<title>The Next Step</title>
 
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(
-                    circle at center,
-                    #202020 0%,
-                    #111111 52%,
-                    #070707 100%
-                );
 
-            color: #e7e3d8;
+<style>
 
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
+/* =========================
+   RESET
+========================= */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+* {
+    box-sizing: border-box;
+}
 
-            overflow-x: hidden;
-        }
+html,
+body {
 
-        .container {
-            width: min(90%, 720px);
-            min-height: 100vh;
+    margin: 0;
+    padding: 0;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    width: 100%;
+    min-height: 100%;
 
-            text-align: center;
+}
 
-            position: relative;
-            padding: 50px 20px;
-        }
 
-        .content {
-            width: 100%;
-        }
+/* =========================
+   BODY
+========================= */
 
-        .symbols {
-            font-family: Georgia, serif;
-            font-size: 18px;
-            letter-spacing: 13px;
+body {
 
-            color: #77746c;
+    min-height: 100vh;
 
-            margin-bottom: 35px;
+    background:
+        radial-gradient(
+            circle at center,
+            #202020 0%,
+            #111111 55%,
+            #070707 100%
+        );
 
-            direction: ltr;
-        }
+    color: #e7e3d8;
 
-        h1 {
-            margin: 0;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            font-size: clamp(34px, 9vw, 68px);
+    display: flex;
 
-            font-weight: normal;
+    align-items: center;
+    justify-content: center;
 
-            letter-spacing: 8px;
+    overflow-x: hidden;
 
-            color: #e9e5dc;
+}
 
-            direction: ltr;
-        }
 
-        .line {
-            width: 80px;
-            height: 1px;
+/* =========================
+   MAIN CONTAINER
+========================= */
 
-            background: #77746c;
+.container {
 
-            margin: 28px auto;
+    width: min(90%, 720px);
 
-            opacity: 0.7;
-        }
+    min-height: 100vh;
 
-        .opening {
-            font-size: clamp(15px, 4vw, 20px);
+    display: flex;
 
-            line-height: 1.9;
+    align-items: center;
+    justify-content: center;
 
-            color: #aaa69d;
+    text-align: center;
 
-            font-style: italic;
+    padding: 55px 20px;
 
-            direction: ltr;
-        }
+}
 
-        .continue-area {
-            margin-top: 48px;
-        }
 
-        button,
-        .file-link {
+.content {
 
-            background: transparent;
+    width: 100%;
 
-            border: 1px solid #66635d;
+}
 
-            color: #dedad0;
 
-            padding: 13px 34px;
+/* =========================
+   SYMBOLS
+========================= */
 
-            font-family: Georgia, serif;
+.symbols {
 
-            font-size: 15px;
+    font-size: 18px;
 
-            letter-spacing: 2px;
+    letter-spacing: 13px;
 
-            cursor: pointer;
+    color: #77746c;
 
-            text-decoration: none;
+    margin-bottom: 34px;
 
-            display: inline-block;
+    direction: ltr;
 
-            transition:
-                background 0.35s ease,
-                color 0.35s ease,
-                border-color 0.35s ease;
+}
 
-        }
 
-        button:hover,
-        .file-link:hover {
+/* =========================
+   TITLE
+========================= */
 
-            background: #dedad0;
+h1 {
 
-            color: #101010;
+    margin: 0;
 
-            border-color: #dedad0;
+    font-size:
+        clamp(34px, 9vw, 68px);
 
-        }
+    font-weight: normal;
 
-        .hidden {
-            display: none;
-        }
+    letter-spacing: 8px;
 
-        .reveal {
-            display: block;
+    color: #e9e5dc;
 
-            animation:
-                fadeIn 1.1s ease forwards;
-        }
+}
 
-        .second-page {
-            margin-top: 42px;
-        }
 
-        .second-page p {
+/* =========================
+   DIVIDER
+========================= */
 
-            margin: 0 auto 30px;
+.line {
 
-            max-width: 520px;
+    width: 80px;
 
-            font-size: 17px;
+    height: 1px;
 
-            line-height: 2;
+    background: #77746c;
 
-            color: #b5b1a8;
+    margin: 28px auto;
 
-            direction: ltr;
-        }
+    opacity: .7;
 
-        .lock {
+}
 
-            margin-top: 25px;
 
-            font-size: 18px;
+/* =========================
+   INTRO
+========================= */
 
-            color: #77746c;
+.opening {
 
-        }
+    font-size:
+        clamp(15px, 4vw, 20px);
 
-        .hint {
+    line-height: 1.9;
 
-            margin-top: 30px;
+    color: #aaa69d;
 
-            font-size: 13px;
+    font-style: italic;
 
-            line-height: 1.8;
+}
 
-            color: #77746c;
 
-            font-style: italic;
+/* =========================
+   QUESTION
+========================= */
 
-            direction: ltr;
+.question {
 
-        }
+    margin-top: 48px;
 
-        .footer {
+    font-size: 12px;
 
-            position: fixed;
+    letter-spacing: 3px;
 
-            bottom: 16px;
+    color: #77746c;
 
-            left: 0;
+}
 
-            width: 100%;
 
-            text-align: center;
+/* =========================
+   OPTIONS
+========================= */
 
-            font-size: 10px;
+.options {
 
-            letter-spacing: 3px;
+    margin-top: 25px;
 
-            color: #4f4d48;
+    display: flex;
 
-            direction: ltr;
+    flex-direction: column;
 
-        }
+    align-items: center;
 
-        @keyframes fadeIn {
+    gap: 17px;
 
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
 
-        }
+.option {
 
-        @media (max-width: 500px) {
+    width: min(100%, 390px);
 
-            h1 {
-                letter-spacing: 5px;
-            }
+    padding: 17px 25px;
 
-            .symbols {
-                letter-spacing: 8px;
-            }
+    background: transparent;
 
-            .footer {
-                letter-spacing: 2px;
-            }
+    border: 1px solid #55524c;
 
-        }
+    color: #dedad0;
 
-    </style>
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .25s ease;
+
+}
+
+
+.option:hover {
+
+    background: #dedad0;
+
+    color: #101010;
+
+    border-color: #dedad0;
+
+    transform: translateY(-2px);
+
+}
+
+
+.option-description {
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #68655e;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================
+   INTERMEDIATE PAGE
+========================= */
+
+.intermediate {
+
+    max-width: 590px;
+
+    margin: 0 auto;
+
+}
+
+
+.intermediate-title {
+
+    font-size:
+        clamp(25px, 6vw, 36px);
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+
+    color: #e3dfd5;
+
+}
+
+
+.intermediate-text {
+
+    margin-top: 25px;
+
+    color: #aaa69d;
+
+    font-size: 15px;
+
+    line-height: 2.05;
+
+}
+
+
+.emphasis {
+
+    margin-top: 25px;
+
+    color: #d0cbc1;
+
+    font-style: italic;
+
+}
+
+
+.warning {
+
+    margin-top: 30px;
+
+    padding: 18px 20px;
+
+    border-left: 1px solid #55524c;
+
+    border-right: 1px solid #55524c;
+
+    color: #77746c;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-button {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 14px 30px;
+
+    background: transparent;
+
+    border: 1px solid #66635d;
+
+    color: #dedad0;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .25s ease;
+
+}
+
+
+.primary-button:hover {
+
+    background: #dedad0;
+
+    color: #101010;
+
+    border-color: #dedad0;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+.back {
+
+    display: block;
+
+    margin: 32px auto 0;
+
+    background: none;
+
+    border: none;
+
+    color: #57544e;
+
+    font-family: Georgia, serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+}
+
+
+.back:hover {
+
+    color: #99958c;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    position: fixed;
+
+    bottom: 16px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #4f4d48;
+
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+.content {
+
+    animation:
+        fadeIn 1.1s ease forwards;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    h1 {
+
+        letter-spacing: 5px;
+
+    }
+
+    .symbols {
+
+        letter-spacing: 8px;
+
+    }
+
+    .footer {
+
+        letter-spacing: 2px;
+
+    }
+
+    .intermediate-text {
+
+        font-size: 14px;
+
+    }
+
+}
+
+</style>
+
 </head>
+
+
 
 <body>
 
+
 <div class="container">
 
-    <div class="content">
 
-        <div class="symbols">
-            ϟ △ ⊙ ∴ □
+<div class="content">
+
+
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
+
+<div id="mainPage">
+
+
+    <div class="symbols">
+        ϟ △ ⊙ ∴ □
+    </div>
+
+
+    <h1>
+        THE NEXT STEP
+    </h1>
+
+
+    <div class="line"></div>
+
+
+    <div class="opening">
+
+        The reflection is waiting.<br>
+
+        How you reach it is up to you.
+
+    </div>
+
+
+    <div class="question">
+
+        CHOOSE YOUR PATH
+
+    </div>
+
+
+    <div class="options">
+
+
+        <!-- CHALLENGE -->
+
+        <a
+            href="javascript:void(0)"
+            class="option"
+            onclick="showChallengeIntro()"
+        >
+
+            I WANT TO DISCOVER
+
+            <div class="option-description">
+
+                Take the challenge first.
+
+            </div>
+
+        </a>
+
+
+
+        <!-- DIRECT -->
+
+        <a
+            href="Main Reflection 8b Open.pdf"
+            target="_blank"
+            class="option"
+        >
+
+            JUST SHOW ME THE REFLECTION
+
+            <div class="option-description">
+
+                Skip the challenge and read directly.
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CHALLENGE INTRO
+===================================================== -->
+
+<div
+    id="challengeIntro"
+    style="display:none;"
+>
+
+
+    <div class="symbols">
+        ϟ △ ⊙ ∴ □
+    </div>
+
+
+    <div class="intermediate">
+
+
+        <div class="intermediate-title">
+
+            WELCOME TO THE CHALLENGE
+
         </div>
-
-
-        <h1>
-            THE NEXT STEP
-        </h1>
 
 
         <div class="line"></div>
 
 
-        <div class="opening">
-            Not everything revealed<br>
-            is meant to be understood.
+        <div class="intermediate-text">
+
+            You have chosen to take
+            the longer way in.
+
+            <br><br>
+
+            The answer is not hidden here.
+
+            <br>
+
+            It has already appeared
+            somewhere before.
+
+        </div>
+
+
+        <div class="emphasis">
+
+            Go back to the scenario.<br>
+
+            Read it once more.<br>
+
+            Look closer.
+
         </div>
 
 
-        <div class="continue-area">
+        <div class="warning">
 
-            <button onclick="continueStep()">
-                CONTINUE
-            </button>
+            Everything you need to find the key
+            has already been shown.
 
-        </div>
+            <br>
 
-
-        <div id="secondPage" class="hidden">
-
-            <div class="line"></div>
-
-
-            <div class="second-page">
-
-                <p>
-                    Some answers are better discovered
-                    than given.
-                </p>
-
-
-                <a
-                    class="file-link"
-                    href="Main-Reflection-8b.pdf"
-                    target="_blank"
-                >
-                    OPEN THE FILE
-                </a>
-
-
-                <div class="lock">
-                    ⟐
-                </div>
-
-
-                <div class="hint">
-                    If the next door asks for a key,
-                    perhaps the answer was never far away.
-                </div>
-
-            </div>
+            Sometimes, the smallest detail
+            is the one that opens the door.
 
         </div>
+
+
+        <a
+            href="challenge.html"
+            class="primary-button"
+        >
+
+            ENTER THE CHALLENGE
+
+        </a>
+
+
+        <button
+            class="back"
+            onclick="showMain()"
+        >
+
+            ← CHOOSE ANOTHER PATH
+
+        </button>
+
 
     </div>
 
+
 </div>
+
+
+</div>
+
+</div>
+
 
 
 <div class="footer">
+
     THINK · QUESTION · REFLECT
+
 </div>
+
 
 
 <script>
 
-    function continueStep() {
 
-        const page =
-            document.getElementById("secondPage");
+/* =========================
+   SHOW CHALLENGE INTRO
+========================= */
 
-        page.classList.remove("hidden");
+function showChallengeIntro() {
 
-        page.classList.add("reveal");
+    document
+        .getElementById("mainPage")
+        .style.display = "none";
 
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
 
-    }
+    document
+        .getElementById("challengeIntro")
+        .style.display = "block";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* =========================
+   RETURN TO MAIN
+========================= */
+
+function showMain() {
+
+    document
+        .getElementById("challengeIntro")
+        .style.display = "none";
+
+
+    document
+        .getElementById("mainPage")
+        .style.display = "block";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
 
 </script>
 
+
 </body>
+
 </html>
+```
