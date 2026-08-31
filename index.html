@@ -6,19 +6,11 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Next Step</title>
 
-
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 * {
     box-sizing: border-box;
@@ -26,19 +18,11 @@
 
 html,
 body {
-
     margin: 0;
     padding: 0;
-
     width: 100%;
     min-height: 100%;
-
 }
-
-
-/* =========================
-   BODY
-========================= */
 
 body {
 
@@ -65,13 +49,7 @@ body {
     justify-content: center;
 
     overflow-x: hidden;
-
 }
-
-
-/* =========================
-   MAIN CONTAINER
-========================= */
 
 .container {
 
@@ -90,17 +68,9 @@ body {
 
 }
 
-
 .content {
-
     width: 100%;
-
 }
-
-
-/* =========================
-   SYMBOLS
-========================= */
 
 .symbols {
 
@@ -112,14 +82,7 @@ body {
 
     margin-bottom: 34px;
 
-    direction: ltr;
-
 }
-
-
-/* =========================
-   TITLE
-========================= */
 
 h1 {
 
@@ -136,11 +99,6 @@ h1 {
 
 }
 
-
-/* =========================
-   DIVIDER
-========================= */
-
 .line {
 
     width: 80px;
@@ -155,11 +113,6 @@ h1 {
 
 }
 
-
-/* =========================
-   INTRO
-========================= */
-
 .opening {
 
     font-size:
@@ -173,11 +126,6 @@ h1 {
 
 }
 
-
-/* =========================
-   QUESTION
-========================= */
-
 .question {
 
     margin-top: 48px;
@@ -189,11 +137,6 @@ h1 {
     color: #77746c;
 
 }
-
-
-/* =========================
-   OPTIONS
-========================= */
 
 .options {
 
@@ -208,7 +151,6 @@ h1 {
     gap: 17px;
 
 }
-
 
 .option {
 
@@ -240,7 +182,6 @@ h1 {
 
 }
 
-
 .option:hover {
 
     background: #dedad0;
@@ -252,7 +193,6 @@ h1 {
     transform: translateY(-2px);
 
 }
-
 
 .option-description {
 
@@ -268,11 +208,6 @@ h1 {
 
 }
 
-
-/* =========================
-   INTERMEDIATE PAGE
-========================= */
-
 .intermediate {
 
     max-width: 590px;
@@ -280,7 +215,6 @@ h1 {
     margin: 0 auto;
 
 }
-
 
 .intermediate-title {
 
@@ -295,7 +229,6 @@ h1 {
 
 }
 
-
 .intermediate-text {
 
     margin-top: 25px;
@@ -308,7 +241,6 @@ h1 {
 
 }
 
-
 .emphasis {
 
     margin-top: 25px;
@@ -318,7 +250,6 @@ h1 {
     font-style: italic;
 
 }
-
 
 .warning {
 
@@ -339,11 +270,6 @@ h1 {
     font-style: italic;
 
 }
-
-
-/* =========================
-   BUTTON
-========================= */
 
 .primary-button {
 
@@ -375,7 +301,6 @@ h1 {
 
 }
 
-
 .primary-button:hover {
 
     background: #dedad0;
@@ -387,11 +312,6 @@ h1 {
     transform: translateY(-2px);
 
 }
-
-
-/* =========================
-   BACK
-========================= */
 
 .back {
 
@@ -407,25 +327,19 @@ h1 {
 
     font-family: Georgia, serif;
 
+    cursor: pointer;
+
     font-size: 11px;
 
     letter-spacing: 2px;
 
-    cursor: pointer;
-
 }
-
 
 .back:hover {
 
     color: #99958c;
 
 }
-
-
-/* =========================
-   FOOTER
-========================= */
 
 .footer {
 
@@ -447,18 +361,12 @@ h1 {
 
 }
 
-
-/* =========================
-   ANIMATION
-========================= */
-
 .content {
 
     animation:
         fadeIn 1.1s ease forwards;
 
 }
-
 
 @keyframes fadeIn {
 
@@ -482,35 +390,22 @@ h1 {
 
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 500px) {
 
     h1 {
-
         letter-spacing: 5px;
-
     }
 
     .symbols {
-
         letter-spacing: 8px;
-
     }
 
     .footer {
-
         letter-spacing: 2px;
-
     }
 
     .intermediate-text {
-
         font-size: 14px;
-
     }
 
 }
@@ -520,104 +415,83 @@ h1 {
 </head>
 
 
-
 <body>
 
 
 <div class="container">
 
-
 <div class="content">
 
-
-<!-- =====================================================
-     MAIN PAGE
-===================================================== -->
 
 <div id="mainPage">
 
 
-    <div class="symbols">
-        ϟ △ ⊙ ∴ □
-    </div>
+<div class="symbols">
+ϟ △ ⊙ ∴ □
+</div>
 
 
-    <h1>
-        THE NEXT STEP
-    </h1>
+<h1>
+THE NEXT STEP
+</h1>
 
 
-    <div class="line"></div>
+<div class="line"></div>
 
 
-    <div class="opening">
+<div class="opening">
 
-        The reflection is waiting.<br>
-
-        How you reach it is up to you.
-
-    </div>
-
-
-    <div class="question">
-
-        CHOOSE YOUR PATH
-
-    </div>
-
-
-    <div class="options">
-
-
-        <!-- CHALLENGE -->
-
-        <a
-            href="javascript:void(0)"
-            class="option"
-            onclick="showChallengeIntro()"
-        >
-
-            I WANT TO DISCOVER
-
-            <div class="option-description">
-
-                Take the challenge first.
-
-            </div>
-
-        </a>
-
-
-
-        <!-- DIRECT -->
-
-        <a
-            href="Main Reflection 8b Open.pdf"
-            target="_blank"
-            class="option"
-        >
-
-            JUST SHOW ME THE REFLECTION
-
-            <div class="option-description">
-
-                Skip the challenge and read directly.
-
-            </div>
-
-        </a>
-
-
-    </div>
-
+The reflection is waiting.<br>
+How you reach it is up to you.
 
 </div>
 
 
+<div class="question">
 
-<!-- =====================================================
-     CHALLENGE INTRO
-===================================================== -->
+CHOOSE YOUR PATH
+
+</div>
+
+
+<div class="options">
+
+
+<a
+    href="#"
+    class="option"
+    onclick="showChallengeIntro(); return false;"
+>
+
+I WANT TO DISCOVER
+
+<div class="option-description">
+Take the challenge first.
+</div>
+
+</a>
+
+
+<a
+    href="Main Reflection 8b Open.pdf"
+    target="_blank"
+    class="option"
+>
+
+JUST SHOW ME THE REFLECTION
+
+<div class="option-description">
+Skip the challenge and read directly.
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+
 
 <div
     id="challengeIntro"
@@ -625,87 +499,84 @@ h1 {
 >
 
 
-    <div class="symbols">
-        ϟ △ ⊙ ∴ □
-    </div>
+<div class="symbols">
+ϟ △ ⊙ ∴ □
+</div>
 
 
-    <div class="intermediate">
+<div class="intermediate">
 
 
-        <div class="intermediate-title">
+<div class="intermediate-title">
 
-            WELCOME TO THE CHALLENGE
+WELCOME TO THE CHALLENGE
 
-        </div>
-
-
-        <div class="line"></div>
+</div>
 
 
-        <div class="intermediate-text">
-
-            You have chosen to take
-            the longer way in.
-
-            <br><br>
-
-            The answer is not hidden here.
-
-            <br>
-
-            It has already appeared
-            somewhere before.
-
-        </div>
+<div class="line"></div>
 
 
-        <div class="emphasis">
+<div class="intermediate-text">
 
-            Go back to the scenario.<br>
+You have chosen to take
+the longer way in.
 
-            Read it once more.<br>
+<br><br>
 
-            Look closer.
+The answer is not hidden here.
 
-        </div>
+<br>
 
+It has already appeared
+somewhere before.
 
-        <div class="warning">
-
-            Everything you need to find the key
-            has already been shown.
-
-            <br>
-
-            Sometimes, the smallest detail
-            is the one that opens the door.
-
-        </div>
+</div>
 
 
-        <a
-            href="challenge.html"
-            class="primary-button"
-        >
+<div class="emphasis">
 
-            ENTER THE CHALLENGE
+Go back to the scenario.<br>
+Read it once more.<br>
+Look closer.
 
-        </a>
-
-
-        <button
-            class="back"
-            onclick="showMain()"
-        >
-
-            ← CHOOSE ANOTHER PATH
-
-        </button>
+</div>
 
 
-    </div>
+<div class="warning">
 
+Everything you need to find the key
+has already been shown.
+
+<br>
+
+Sometimes, the smallest detail
+is the one that opens the door.
+
+</div>
+
+
+<a
+    href="challenge.html"
+    class="primary-button"
+>
+
+ENTER THE CHALLENGE
+
+</a>
+
+
+<button
+    class="back"
+    onclick="showMain()"
+>
+
+← CHOOSE ANOTHER PATH
+
+</button>
+
+
+</div>
 
 </div>
 
@@ -713,23 +584,16 @@ h1 {
 </div>
 
 </div>
-
 
 
 <div class="footer">
 
-    THINK · QUESTION · REFLECT
+THINK · QUESTION · REFLECT
 
 </div>
 
 
-
 <script>
-
-
-/* =========================
-   SHOW CHALLENGE INTRO
-========================= */
 
 function showChallengeIntro() {
 
@@ -737,26 +601,17 @@ function showChallengeIntro() {
         .getElementById("mainPage")
         .style.display = "none";
 
-
     document
         .getElementById("challengeIntro")
         .style.display = "block";
 
-
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
 
-
-/* =========================
-   RETURN TO MAIN
-========================= */
 
 function showMain() {
 
@@ -764,18 +619,13 @@ function showMain() {
         .getElementById("challengeIntro")
         .style.display = "none";
 
-
     document
         .getElementById("mainPage")
         .style.display = "block";
 
-
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
